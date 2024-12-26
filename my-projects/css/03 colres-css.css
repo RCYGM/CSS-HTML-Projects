@@ -1,0 +1,86 @@
+
+h1 {
+    text-align: center; 
+  }
+  
+  .container {
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0;
+  }
+  
+  .marker {
+    width: 200px;
+    height: 25px;
+    margin: 10px auto;
+  }
+  
+  .cap {
+    width: 60px;
+    height: 25px;
+  }
+  
+  .sleeve {
+    width: 110px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-left: 10px double rgba(0, 0, 0, 0.75);
+        /* 
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-left-color: black; 
+    */
+  }
+  
+  .cap, .sleeve {
+    display: inline-block;
+  }
+  
+  .red {
+    background: linear-gradient(rgb(122, 74, 14), rgb(245, 62, 113), rgb(162, 27, 27));
+    box-shadow: 0 0 20px 0 rgba(83, 14, 14, 0.8);
+    /* ¿Qué es box-shadow en CSS?
+box-shadow es una propiedad de CSS que se utiliza 
+para agregar sombras a los elementos, como cajas, 
+botones, imágenes, etc. Con esta propiedad, puedes 
+aplicar una sombra alrededor del borde de un elemento 
+para darle un efecto de profundidad o para hacer que 
+el elemento se destaque.
+
+Sintaxis de box-shadow
+La propiedad box-shadow se define con varios valores, 
+que especifican la posición y el tamaño de la sombra:
+
+css
+box-shadow: offset-x offset-y blur-radius spread-radius color;
+
+offset-x: Desplazamiento horizontal de la sombra. Un valor 
+positivo mueve la sombra a la derecha, mientras que un valor 
+negativo la mueve a la izquierda.
+
+offset-y: Desplazamiento vertical de la sombra. Un valor positivo
+ mueve la sombra hacia abajo, y un valor negativo la mueve hacia arriba.
+
+blur-radius (opcional): Define el desenfoque de la sombra. Un valor
+mayor hace que la sombra sea más difusa.
+
+spread-radius (opcional): Define el tamaño de la sombra. Un valor 
+positivo aumenta el tamaño de la sombra, mientras que un valor negativo 
+lo reduce.
+
+color (opcional): El color de la sombra. Si no se especifica, el navegador 
+usa el color de texto del elemento.*/
+  }
+  
+  .green {
+    background: linear-gradient(#55680D, #71F53E, #116C31);
+    box-shadow: 0 0 20px 0 #3B7E20CC;
+  }
+  
+  .blue {
+    background: linear-gradient(hsl(186, 76%, 16%), hsl(223, 90%, 60%), hsl(240, 56%, 42%));
+    box-shadow: 0 0 20px 0 blue;
+  }
+  
+
+
+

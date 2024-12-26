@@ -1,0 +1,96 @@
+body {
+    width: 100%;
+    /* deifine el ancho total */
+    height: 100vh;
+    /* define el alto total */
+    margin: 0;
+    /* pone todos los margenes del body a 0 */
+    background-color: #1b1b32;
+    /* define el color de fondo del body */
+    color: #f5f6f7;
+    /* define el color de lo que hay en el body */
+    font-family: Tahoma;
+    /* define la fuente que habra en el body */
+    font-size: 16px;
+    /* define el tamaño de la fuente del body */
+}
+label {
+    display: block;
+    /* le dice que se organice en block */
+    margin: 0.5rem 0;
+    /* tiene un margen de 0.5rem de arriba y abajo y 0 en izquierda y derecha */
+}
+
+h1,
+p {
+    margin: 1em auto;
+    /* arriba y abajo posee 1em y derecha y izquierda auto */
+    text-align: center;
+    /* centra el contenido */
+}
+
+form {
+    margin: 0 auto;
+    /* centra el contenido */
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    /* tendra esa medida de width en el rango de 300px a 500px */
+    padding-bottom: 2em;
+}
+
+fieldset {
+    border: none;
+    /* elimina los bordes */
+    padding: 2rem 0;
+    /* agrega ancho arriba y abjao pero no a los lados */
+    border-bottom: 3px solid #3b3b4f;
+    /* le dice al borde de abajo que tenga esas espesificaciones */
+}
+
+fieldset:last-of-type {
+    border-bottom: none;
+    /* esto selecciona y elimina al ultimo borde */
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    margin: 10px 0 0 0;
+    min-height: 2em;
+}
+
+.inline {
+    width: unset;
+    /* Esto eliminará la regla anterior que establece que todos los input tengan un width: 100%. */
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+}
+
+input,
+textarea {
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #3b3b4f;
+    border-color: white;
+    min-width: 300px;
+}
+
+input[type="file"] {
+    padding: 1px 2px;
+}
+
+a {
+    text-align: center;
+    color: #dfdfe2;
+}

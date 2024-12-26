@@ -1,0 +1,99 @@
+:root {
+    --color1: black;
+    --color2: white;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.eliminar{
+    border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+  margin: -1px !important;
+}
+html {
+    font-size: 62.5%;
+    /* 2rem serían 20 píxeles. */
+}
+
+body {
+    background-color: var(--color1);
+    color: var(--color2);
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    position: fixed;
+    top: 0px;
+    left: 5%;
+    padding: 2rem;
+    border-bottom: 1px solid var(--color2);
+    margin-bottom: 4rem;
+    background-color: var(--color1);
+    z-index: 1;
+
+}
+nav>a {
+    margin: 0rem 2rem;
+    text-decoration: none;
+    color: var(--color2);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+section:first-of-type {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.contenedor-grid {
+    width: 80%;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.project-tile{
+    background: linear-gradient(
+        var(--color2),
+        var(--color1)
+    );
+    padding: 2rem;
+    border-radius: 10px;
+}
+.project-tile > a{
+    text-decoration: none;
+    color: var(--color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    background-color: var(--color1);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+@media (max-width: 767px) {
+    .contenedor-grid{
+        display: block;
+    }
+    .project-tile{
+        margin-top: 8rem;
+        padding-bottom: 4rem;
+    }
+}

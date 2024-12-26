@@ -1,0 +1,360 @@
+
+@media (prefers-reduced-motion: no-preference){
+    *{
+        scroll-behavior: smooth;
+    }
+}
+body {
+    background: #f5f6f7;
+    color: #1b1b32;
+    font-family: Helvetica;
+    margin: 0;
+  }
+#logo {
+    width: max(10rem, 18vw);
+    background-color: #0a0a23;
+    aspect-ratio: 35 / 4;
+    padding: 0.4rem;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: #1b1b32;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    /* Diferencias entre las propiedades justify-content: space-between;, 
+    justify-content: space-around;, y justify-content: 
+    space-evenly; se utilizan en CSS para alinear y distribuir 
+    el espacio entre los elementos hijos de un contenedor flexible 
+    (usualmente un contenedor con display: flex o display: grid). 
+    Aquí te explico las diferencias entre ellas:
+
+1. justify-content: space-between;
+Distribución del espacio: Coloca los elementos hijos con el 
+máximo espacio posible entre ellos.
+
+Bordes del contenedor: Los elementos se alinean al 
+inicio y al final del contenedor, sin espacio extra en 
+los bordes.
+
+Visualización: El primer elemento se pega al borde izquierdo 
+del contenedor y el último elemento se pega al borde derecho,
+con los demás elementos distribuidos equitativamente entre ellos.
+
+Ejemplo visual:
+
+|A       B       C|
+
+
+2. justify-content: space-around;
+
+Distribución del espacio: Distribuye el espacio uniformemente 
+alrededor de los elementos, pero el espacio entre los elementos 
+es mayor que el espacio en los bordes.
+
+Bordes del contenedor: Hay espacio adicional tanto al principio 
+como al final del contenedor, pero es la mitad del espacio entre 
+los elementos.
+
+Visualización: Cada elemento tiene un espacio igual alrededor de 
+sí mismo, pero el espacio entre los elementos será el doble del 
+espacio entre un elemento y el borde del contenedor.
+
+Ejemplo visual:
+
+| A   B   C |
+3. justify-content: space-evenly;
+Distribución del espacio: Distribuye el espacio uniformemente entre 
+todos los elementos, incluyendo los bordes del contenedor.
+
+Bordes del contenedor: El espacio entre los elementos es exactamente 
+el mismo que el espacio entre los elementos y los bordes del contenedor.
+
+Visualización: Todos los elementos y los bordes tienen un espacio igual.
+
+Ejemplo visual:
+
+| A   B   C |
+
+Resumen de las diferencias:
+
+space-between: Máximo espacio posible entre los elementos, 
+sin espacio en los bordes.
+
+space-around: Espacio uniforme alrededor de los elementos, 
+con la mitad del espacio en los bordes.
+
+space-evenly: Espacio exactamente igual entre los elementos 
+y los bordes.
+
+Estos diferentes valores permiten un control fino sobre cómo 
+se distribuye el espacio en un contenedor flexible, según las 
+necesidades de diseño. */
+    gap: 3em;
+}
+
+h1 {
+    color: #f1be32;
+    font-size: min(5vw, 1.2em);
+    text-align: center;
+}
+
+main {
+    padding-top: 25px;
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+
+nav>ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    /* La propiedad flex-wrap en CSS se utiliza 
+    dentro de un contenedor flexible (display: flex) 
+    para controlar si los elementos hijos deben 
+    permanecer en una sola línea o si deben "envolverse" 
+    (es decir, moverse a una nueva línea) cuando no hay 
+    suficiente espacio en la dirección principal del 
+    contenedor.
+
+Valores de flex-wrap:
+flex-wrap: nowrap;
+
+Comportamiento: Esta es la configuración predeterminada. 
+Los elementos flexibles se mantendrán en una sola línea, 
+incluso si esto significa que los elementos se reducirán 
+en tamaño o se desbordarán del contenedor.
+
+Cuándo usarlo: Útil cuando deseas que todos los elementos 
+se mantengan en una sola fila sin importar cuántos elementos 
+haya o cuánto espacio ocupen.
+Ejemplo:
+
+css
+Copiar código
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+Visualización:
+
+css
+Copiar código
+|[item1][item2][item3][item4]|
+flex-wrap: wrap;
+
+Comportamiento: Los elementos se envuelven en varias líneas 
+si no caben en una sola línea. Cuando la fila actual está llena, 
+los elementos sobrantes se trasladan a una nueva fila.
+
+Cuándo usarlo: Ideal cuando tienes muchos elementos que pueden 
+necesitar más espacio del que puede ofrecer una sola línea, como 
+en galerías de imágenes o listas de elementos que deben ajustarse 
+al tamaño de la ventana.
+
+Ejemplo:
+
+css
+Copiar código
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+Visualización:
+
+css
+Copiar código
+|[item1][item2][item3]|
+|[item4][item5][item6]|
+flex-wrap: wrap-reverse;
+
+Comportamiento: Similar a wrap, pero los elementos se envuelven en 
+múltiples líneas en dirección inversa (de abajo hacia arriba).
+
+Cuándo usarlo: Útil en casos donde necesitas invertir la dirección 
+de apilamiento de los elementos envueltos.
+Ejemplo:
+
+css
+Copiar código
+.container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+Visualización:
+
+css
+Copiar código
+|[item4][item5][item6]|
+|[item1][item2][item3]|
+¿Cuándo usar flex-wrap?
+Usar nowrap cuando deseas que todos los elementos se mantengan en 
+una sola fila sin importar cuánto espacio ocupen.
+
+Usar wrap cuando tienes muchos elementos flexibles que necesitan 
+más espacio del que puede ofrecer una sola fila, y deseas que los 
+elementos se envuelvan automáticamente en nuevas filas cuando sea necesario.
+
+Usar wrap-reverse cuando quieres que los elementos se envuelvan 
+en múltiples filas, pero comenzando desde la parte inferior del 
+contenedor hacia la parte superior.
+
+flex-wrap es muy útil para crear diseños adaptables y responsivos, 
+especialmente cuando trabajas con contenedores de ancho limitado o 
+con un número variable de elementos. */
+    padding-inline-start: 0;
+    margin-block: 0;
+    height: 100%;
+}
+
+h1,
+h2 {
+    font-family: "Verdana", "sans-serif";
+}
+
+h2 {
+    border-bottom: 4px solid #dfdfe2;
+    margin-top: 0px;
+    padding-top: 60px;
+}
+
+.info {
+    padding: 10px 0 0 5px;
+}
+
+.formrow {
+    margin-top: 30px;
+    padding: 0px 15px;
+}
+
+input {
+    font-size: 16px;
+}
+.info > label, .info > input{
+    display: inline-block;
+}
+.info > label{
+    text-align: right;
+}
+.info > input{
+    width: 50%;
+    text-align: left;
+}
+.info > label{
+    width: 10% ;
+    min-width: 55px;
+}
+.sr-only {
+    /*Este codigo borra lo seleccionado de la vista del usuario*/
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.question-block{
+    text-align: left;
+display: block;
+width: 100%;
+margin-top: 20px;
+padding-top: 5px;
+}
+p{
+    margin-top: 5px;
+padding-left: 15px;
+font-size: 20px;
+}
+p::before {
+    /* ¿Qué hace este código? */
+    content: "Question #";
+    /* Selector p::before: Este selector aplica una 
+    pseudoelemento ::before a todos los elementos 
+    <p> (párrafo) en la página. El pseudoelemento 
+    ::before se utiliza para insertar contenido antes 
+    del contenido real del elemento seleccionado.
+
+Propiedad content: La propiedad content se usa para 
+definir el contenido que se mostrará en el pseudoelemento. 
+En este caso, inserta el texto "Question #" antes de 
+cualquier contenido que ya esté dentro del párrafo <p>.
+
+Resultado Visual
+Cada vez que haya un párrafo <p> en la página, este código 
+CSS insertará automáticamente el texto "Question #" al principio 
+del párrafo, justo antes del contenido que ya existe en ese párrafo.
+
+Ejemplo:
+Si tienes un párrafo como este:
+
+html
+Copiar código
+<p>¿Cuál es la capital de Francia?</p>
+Con el CSS aplicado, se verá así en la página:
+
+html
+Copiar código
+<p>Question # ¿Cuál es la capital de Francia?</p>
+Este código es útil para añadir prefijos o etiquetas de 
+forma automática antes de los párrafos, sin tener que 
+modificar el HTML directamente.*/
+}
+.question{
+    border: none;
+    padding-bottom: 0;
+}
+.answers-list{
+    list-style: none;
+    padding: 0;
+}
+button{
+    display: block;
+margin: 40px auto;
+width: 40%;
+padding: 15px;
+font-size: 23px;
+background: #d0d0d5;
+border: 3px solid #3b3b4f;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: #2a2a40;
+}
+footer, footer  a{
+    color: white;
+}
+address {
+    text-align: center;
+    padding: 0.3em;
+  }
+nav > ul > li {
+    color: #dfdfe2;
+    margin: 0 0.2rem;
+    padding: 0.2rem;
+    display: block;
+}
+
+li>a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav>ul>li:hover {
+    color: #1b1b32;
+    background-color: #dfdfe2;
+    cursor: pointer;
+}

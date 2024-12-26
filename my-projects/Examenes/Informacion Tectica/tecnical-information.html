@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Documentation</title>
+  <link rel="stylesheet" href="../Informacion Tectica/tecnical-information.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav id="navbar">
+    <header>JS Documentation</header>
+    <a href="#variables" class="nav-link">Variables</a>
+    <!-- <a href="#data-types" class="nav-link">Tipos de Datos</a> -->
+    <!-- <a href="#operators" class="nav-link">Operadores</a> -->
+    <!-- <a href="#control-structures" class="nav-link">Estructuras de Control</a> -->
+    <a href="#functions" class="nav-link">Funciones</a>
+    <!-- <a href="#objects-arrays" class="nav-link">Objetos y Arrays</a> -->
+    <!-- <a href="#prototypes-inheritance" class="nav-link">Prototipos y Herencia</a> -->
+    <a href="#dom-manipulation" class="nav-link">Manejo del DOM</a>
+    <!-- <a href="#date-manipulation" class="nav-link">Manipulación de Fechas</a> -->
+    <!-- <a href="#error-handling" class="nav-link">Manejo de Errores</a> -->
+    <!-- <a href="#asynchrony" class="nav-link">Asincronía</a> -->
+    <!-- <a href="#regular-expressions" class="nav-link">Expresiones Regulares</a> -->
+    <!-- <a href="#this-context" class="nav-link">Manejo del Contexto (this)</a> -->
+    <!-- <a href="#modules" class="nav-link">Módulos</a> -->
+    <!-- <a href="#data-structures" class="nav-link">Estructuras de Datos</a> -->
+    <!-- <a href="#advanced-operators" class="nav-link">Operadores Avanzados</a> -->
+    <!-- <a href="#iterators-generators" class="nav-link">Iteradores y Generadores</a> -->
+    <!-- <a href="#json-handling" class="nav-link">Manejo de JSON</a> -->
+    <a href="#ajax-fetch" class="nav-link">Ajax y Fetch API</a>
+    <a href="#web-apis" class="nav-link">Web APIs</a>
+    <!-- <a href="#ecmascript-features" class="nav-link">EcmaScript (ES) Features</a> -->
+    <a href="#internals-performance" class="nav-link">Internals y Performance</a>
+    <!-- <a href="#advanced-string-operations" class="nav-link">Operaciones Avanzadas con Strings</a> -->
+  </nav>
+
+  <!-- Contenido principal -->
+  <main id="main-doc">
+    <!-- Variables -->
+<section id="variables" class="main-section">
+    <header>Variables: var, let, const</header>
+    <p>
+      1. <strong>var:</strong><br>
+      - Declarada en ECMAScript 1 (ES1).<br>
+      - Tiene <strong>alcance global o de función</strong>. Esto significa que si defines una variable <code>var</code> dentro de una función, solo será accesible dentro de esa función. Si la defines fuera de cualquier función, será accesible en todo el código.<br>
+      - <strong>Hoisting:</strong> Las variables declaradas con <code>var</code> se elevan al inicio de su contexto (global o de función) antes de ejecutar el código. Esto significa que puedes usar una variable antes de declararla.<br>
+      - Puede ser redeclarada y reasignada.<br>
+      - Es propensa a errores por su comportamiento flexible, lo cual es una de las razones por las que se recomienda evitar su uso.
+    </p>
+    <pre><code>
+    var nombre = "Juergen";
+    nombre = "Muller"; // Reasignación permitida
+  
+    function ejemploVar() {
+      // Debido al hoisting, puedes usar una variable antes de declararla, pero su valor será undefined
+      console.log(mensaje); // undefined
+      var mensaje = "Hola";
+      console.log(mensaje); // "Hola"
+    }
+    ejemploVar();
+    </code></pre>
+    
+    <p>
+      2. <strong>let:</strong><br>
+      - Introducido en ECMAScript 6 (ES6) como una alternativa moderna a <code>var</code>.<br>
+      - Tiene <strong>alcance de bloque</strong>. Esto significa que una variable definida con <code>let</code> solo existe dentro del bloque en el que fue definida (delimitado por llaves <code>{}</code>).<br>
+      - No puede ser redeclarada en el mismo bloque, pero puede ser reasignada.<br>
+      - <strong>No hay hoisting</strong>. No puedes usar una variable declarada con <code>let</code> antes de su declaración.
+    </p>
+    <pre><code>
+    let edad = 25;
+    edad = 26; // Reasignación permitida
+  
+    function ejemploLet() {
+      let saludo = "Hola, mundo";
+      if (true) {
+        let saludo = "Hola, bloque"; // Esta variable es independiente dentro del bloque
+        console.log(saludo); // "Hola, bloque"
+      }
+      console.log(saludo); // "Hola, mundo"
+    }
+    ejemploLet();
+    </code></pre>
+  
+    <p>
+      3. <strong>const:</strong><br>
+      - También introducido en ES6.<br>
+      - Tiene <strong>alcance de bloque</strong>, igual que <code>let</code>.<br>
+      - <strong>No puede ser reasignada</strong>. Una vez que asignas un valor a una variable declarada con <code>const</code>, no puedes cambiarlo.<br>
+      - <strong>Debe ser inicializada en el momento de su declaración</strong>. No puedes declarar una constante sin asignarle un valor.<br>
+      - Sin embargo, si la constante contiene un objeto o un array, puedes modificar sus propiedades o elementos, pero no puedes reasignar la referencia.
+    </p>
+    <pre><code>
+    const PI = 3.1416;
+    // PI = 3.14; // Esto arrojará un error: "Assignment to constant variable."
+  
+    const persona = {
+      nombre: "Juergen",
+      edad: 25
+    };
+    persona.edad = 26; // Se permite modificar las propiedades del objeto
+    // persona = {}; // Esto arrojaría un error porque no se puede reasignar el objeto completo
+    </code></pre>
+  
+    <p>
+      <strong>Conclusión:</strong><br>
+      - Usa <code>var</code> solo si trabajas con código legado, ya que <code>let</code> y <code>const</code> son más seguros y predecibles.<br>
+      - Usa <code>let</code> cuando necesites que una variable sea mutable y de alcance de bloque.<br>
+      - Usa <code>const</code> cuando sepas que el valor de una variable no cambiará (aunque los objetos o arrays pueden ser modificados).
+    </p>
+  </section>
+  
+<!--
+     <!-- Tipos de Datos 
+    <section id="data-types" class="main-section">
+      <header>Tipos de Datos</header>
+      <p></p>
+    </section>
+
+     <!-- Operadores 
+    <section id="operators" class="main-section">
+      <header>Operadores</header>
+      <p></p>
+    </section>
+
+     <!-- Estructuras de Control 
+    <section id="control-structures" class="main-section">
+      <header>Estructuras de Control</header>
+      <p></p>
+    </section>
+-->
+    <!-- Funciones -->
+<section id="functions" class="main-section">
+    <header>Funciones en JavaScript</header>
+  
+    <p>
+      1. <strong>Declaración de funciones: function</strong><br>
+      - Una función es un bloque de código diseñado para realizar una tarea o calcular un valor.<br>
+      - Puedes declarar una función usando la palabra clave <code>function</code>, seguida del nombre de la función y los paréntesis que pueden contener parámetros.<br>
+      - Las funciones declaradas se elevan (hoisting) al principio del contexto de ejecución, lo que significa que puedes llamarlas antes de su declaración en el código.
+    </p>
+    <pre><code>
+    function saludar(nombre) {
+      return `Hola, ${nombre}`;
+    }
+    console.log(saludar("Juergen")); // "Hola, Juergen"
+    </code></pre>
+  
+    <p>
+      2. <strong>Arrow Functions (=>)</strong><br>
+      - Introducidas en ES6, las arrow functions son una forma más concisa de escribir funciones.<br>
+      - No tienen su propio <code>this</code>, lo que las hace útiles en ciertos contextos como callbacks y métodos de objetos.<br>
+      - No pueden ser usadas como constructores (no tienen <code>new</code>).<br>
+      - Sintaxis más corta: el cuerpo de la función puede omitirse si solo tiene una línea de código.
+    </p>
+    <pre><code>
+    const saludarFlecha = (nombre) => `Hola, ${nombre}`;
+    console.log(saludarFlecha("Muller")); // "Hola, Muller"
+  
+    const sumar = (a, b) => {
+      const resultado = a + b;
+      return resultado;
+    };
+    console.log(sumar(5, 3)); // 8
+    </code></pre>
+  
+    <p>
+      3. <strong>Parámetros predeterminados</strong><br>
+      - En ES6, puedes asignar valores predeterminados a los parámetros de una función.<br>
+      - Si el argumento no es proporcionado cuando la función es invocada, el parámetro tomará su valor predeterminado.
+    </p>
+    <pre><code>
+    function multiplicar(a, b = 2) {
+      return a * b;
+    }
+    console.log(multiplicar(5)); // 10 (5 * 2)
+    console.log(multiplicar(5, 4)); // 20 (5 * 4)
+    </code></pre>
+  
+    <p>
+      4. <strong>Funciones anónimas</strong><br>
+      - Las funciones anónimas son aquellas que no tienen nombre. Suelen ser usadas como callbacks o asignadas a variables.<br>
+      - No puedes llamarlas directamente por un nombre (ya que no tienen uno), pero puedes ejecutarlas en el contexto en que se han definido.
+    </p>
+    <pre><code>
+    const funcionAnonima = function() {
+      console.log("Soy una función anónima");
+    };
+    funcionAnonima(); // "Soy una función anónima"
+  
+    setTimeout(function() {
+      console.log("Este mensaje aparece tras 2 segundos");
+    }, 2000);
+    </code></pre>
+  
+    <p>
+      5. <strong>Funciones de primera clase</strong><br>
+      - En JavaScript, las funciones son tratadas como "ciudadanos de primera clase" (first-class citizens).<br>
+      - Esto significa que las funciones pueden ser:<br>
+      a) Asignadas a variables.<br>
+      b) Pasadas como argumentos a otras funciones.<br>
+      c) Devueltas desde otras funciones.
+    </p>
+    <pre><code>
+    function ejecutarFuncion(func) {
+      func(); // Ejecuta la función que fue pasada como argumento
+    }
+    ejecutarFuncion(() => console.log("Función pasada como argumento")); // "Función pasada como argumento"
+    </code></pre>
+  
+    <p>
+      6. <strong>Funciones recursivas</strong><br>
+      - Una función recursiva es aquella que se llama a sí misma para resolver un problema.<br>
+      - Un ejemplo común es el cálculo del factorial de un número.<br>
+      - Las funciones recursivas deben tener una condición base para evitar un bucle infinito.
+    </p>
+    <pre><code>
+    function factorial(n) {
+      if (n === 0) {
+        return 1; // Condición base
+      } else {
+        return n * factorial(n - 1); // Llamada recursiva
+      }
+    }
+    console.log(factorial(5)); // 120 (5 * 4 * 3 * 2 * 1)
+    </code></pre>
+  
+    <p>
+      7. <strong>Callbacks</strong><br>
+      - Un callback es una función pasada como argumento a otra función y que se ejecuta después de que esta termina.<br>
+      - Los callbacks son esenciales en programación asíncrona y eventos.
+    </p>
+    <pre><code>
+    function procesarUsuario(nombre, callback) {
+      console.log(`Procesando a ${nombre}`);
+      callback();
+    }
+  
+    function mostrarFinalizacion() {
+      console.log("Proceso completado");
+    }
+  
+    procesarUsuario("Juergen", mostrarFinalizacion);
+    // "Procesando a Juergen"
+    // "Proceso completado"
+    </code></pre>
+  
+    <p>
+      8. <strong>Closures</strong><br>
+      - Un closure es una función que recuerda el ámbito (scope) en el que fue creada, incluso después de que el ámbito exterior ha terminado.<br>
+      - Esto permite que una función acceda a variables de su contexto exterior incluso después de que esa función haya finalizado su ejecución.
+    </p>
+    <pre><code>
+    function crearContador() {
+      let contador = 0; // Variable en el ámbito exterior (closure)
+      return function() {
+        contador++; // Accede a la variable exterior
+        return contador;
+      };
+    }
+  
+    const incrementar = crearContador();
+    console.log(incrementar()); // 1
+    console.log(incrementar()); // 2
+    console.log(incrementar()); // 3
+    </code></pre>
+  
+    <p>
+      <strong>Conclusión:</strong><br>
+      - Las funciones son bloques fundamentales de código en JavaScript que pueden realizar tareas específicas, procesar datos y ejecutar otras funciones.<br>
+      - Las arrow functions ofrecen una forma más compacta de escribir funciones, aunque no tienen su propio <code>this</code>.<br>
+      - Los parámetros predeterminados simplifican el código al evitar la necesidad de validaciones adicionales.<br>
+      - Las funciones recursivas son útiles para problemas que requieren repetición, y los closures son potentes cuando se necesita mantener acceso a variables exteriores.<br>
+      - JavaScript permite usar funciones de manera flexible como ciudadanos de primera clase y manejar la asincronía con callbacks.
+    </p>
+  
+  </section>
+  
+<!--
+    <!-- Objetos y Arrays 
+    <section id="objects-arrays" class="main-section">
+      <header>Objetos y Arrays</header>
+      <p></p>
+    </section>
+
+    <!-- Prototipos y Herencia 
+    <section id="prototypes-inheritance" class="main-section">
+      <header>Prototipos y Herencia</header>
+      <p></p>
+    </section>
+-->
+    <!-- Manejo del DOM -->
+<section id="dom-manipulation" class="main-section">
+    <header>Manejo del DOM (Document Object Model)</header>
+  
+    <p>
+      1. <strong>¿Qué es el DOM?</strong><br>
+      - El Document Object Model (DOM) es la representación en forma de objetos de toda la estructura de una página web.<br>
+      - JavaScript puede interactuar con el DOM para modificar su contenido, estructura y estilo en tiempo real, permitiendo hacer que las páginas web sean dinámicas.
+    </p>
+  
+    <p>
+      2. <strong>Selección de elementos</strong><br>
+      - Para modificar el DOM, primero debes seleccionar los elementos con los que deseas interactuar.<br>
+      - JavaScript proporciona varios métodos para seleccionar elementos del DOM.
+    </p>
+  
+    <p>
+      a) <code>document.getElementById()</code><br>
+      - Este método selecciona un elemento en el DOM por su ID único.<br>
+      - Solo devuelve un elemento, ya que los IDs en una página deben ser únicos.
+    </p>
+    <pre><code>
+    const elementoPorID = document.getElementById("miElemento");
+    console.log(elementoPorID); // Devuelve el elemento con ID 'miElemento'
+    </code></pre>
+  
+    <p>
+      b) <code>document.querySelector()</code><br>
+      - Este método selecciona el <strong>primer</strong> elemento que coincide con el selector proporcionado.<br>
+      - Puedes usar selectores CSS (como clases, IDs, etiquetas) para seleccionar el elemento.
+    </p>
+    <pre><code>
+    const primerParrafo = document.querySelector("p");
+    console.log(primerParrafo); // Devuelve el primer elemento <p> del DOM
+  
+    const miClase = document.querySelector(".mi-clase");
+    console.log(miClase); // Devuelve el primer elemento con la clase 'mi-clase'
+    </code></pre>
+  
+    <p>
+      c) <code>document.querySelectorAll()</code><br>
+      - Este método selecciona <strong>todos</strong> los elementos que coinciden con el selector proporcionado.<br>
+      - Devuelve una NodeList (similar a un array), que puedes recorrer para aplicar cambios a todos los elementos seleccionados.
+    </p>
+    <pre><code>
+    const todosLosParrafos = document.querySelectorAll("p");
+    todosLosParrafos.forEach(parrafo => {
+      console.log(parrafo); // Imprime todos los elementos <p> del DOM
+    });
+    </code></pre>
+  
+    <p>
+      3. <strong>Manipulación del DOM</strong><br>
+      - Una vez que seleccionas un elemento, puedes manipularlo de varias formas para cambiar su contenido o su estructura.
+    </p>
+  
+    <p>
+      a) <code>textContent</code><br>
+      - Este método obtiene o establece el contenido de texto de un elemento, sin incluir etiquetas HTML.
+    </p>
+    <pre><code>
+    const titulo = document.getElementById("titulo");
+    console.log(titulo.textContent); // Muestra el texto dentro del elemento con ID 'titulo'
+  
+    titulo.textContent = "Nuevo título"; // Cambia el contenido de texto del elemento
+    </code></pre>
+  
+    <p>
+      b) <code>innerHTML</code><br>
+      - Este método permite obtener o establecer el contenido HTML de un elemento.<br>
+      - A diferencia de <code>textContent</code>, con <code>innerHTML</code> puedes insertar etiquetas HTML dentro del elemento.
+    </p>
+    <pre><code>
+    const contenedor = document.querySelector("#contenedor");
+    contenedor.innerHTML = "<p>Este es un nuevo párrafo <strong>dentro del contenedor</strong></p>"; // Añade HTML
+    </code></pre>
+  
+    <p>
+      c) <code>createElement()</code><br>
+      - Crea un nuevo elemento HTML, que puedes agregar al DOM.<br>
+      - Este elemento todavía no se muestra en la página hasta que lo agregues explícitamente con <code>appendChild()</code> o métodos similares.
+    </p>
+    <pre><code>
+    const nuevoElemento = document.createElement("p");
+    nuevoElemento.textContent = "Este es un nuevo párrafo creado dinámicamente.";
+    </code></pre>
+  
+    <p>
+      d) <code>appendChild()</code><br>
+      - Añade un nuevo hijo (elemento) al final de los elementos hijos de un elemento padre seleccionado.
+    </p>
+    <pre><code>
+    const seccion = document.querySelector(".seccion");
+    seccion.appendChild(nuevoElemento); // Añade el nuevo párrafo al final de la sección
+    </code></pre>
+  
+    <p>
+      e) <code>removeChild()</code><br>
+      - Elimina un elemento hijo del DOM.<br>
+      - Debes seleccionar el elemento padre para poder eliminar uno de sus hijos.
+    </p>
+    <pre><code>
+    const parrafoAEliminar = document.querySelector(".parrafo-para-eliminar");
+    seccion.removeChild(parrafoAEliminar); // Elimina el párrafo seleccionado de la sección
+    </code></pre>
+  
+    <p>
+      4. <strong>Eventos: <code>addEventListener()</code></strong><br>
+      - Los eventos permiten que JavaScript responda a interacciones del usuario (como clics, movimientos del mouse o teclas presionadas).<br>
+      - El método <code>addEventListener()</code> asocia una función a un evento específico de un elemento.<br>
+      - Cuando ocurre el evento, se ejecuta la función asociada (llamada "callback").
+    </p>
+    <pre><code>
+    const boton = document.querySelector("#miBoton");
+    boton.addEventListener("click", () => {
+      alert("¡Has hecho clic en el botón!");
+    });
+    </code></pre>
+  
+    <p>
+      a) <strong>Tipos de eventos comunes:</strong><br>
+      - "click": cuando el usuario hace clic en un elemento.<br>
+      - "mouseover": cuando el puntero del mouse pasa sobre un elemento.<br>
+      - "keydown": cuando una tecla es presionada en el teclado.
+    </p>
+    <pre><code>
+    const inputTexto = document.querySelector("#miInput");
+    inputTexto.addEventListener("keydown", (evento) => {
+      console.log(`Tecla presionada: ${evento.key}`);
+    });
+    </code></pre>
+  
+    <p>
+      <strong>Conclusión:</strong><br>
+      - El manejo del DOM es clave para hacer que las páginas web sean interactivas y dinámicas.<br>
+      - Puedes seleccionar elementos con métodos como <code>getElementById()</code>, <code>querySelector()</code> y <code>querySelectorAll()</code>.<br>
+      - Para manipular el contenido de los elementos, usa <code>textContent</code> e <code>innerHTML</code>, y para modificar la estructura, puedes crear nuevos elementos con <code>createElement()</code> y agregar o eliminar elementos con <code>appendChild()</code> y <code>removeChild()</code>.<br>
+      - Los eventos permiten escuchar las interacciones del usuario y responder con acciones específicas usando <code>addEventListener()</code>.
+    </p>
+  
+  </section>
+  
+<!--
+    <!-- Manipulación de Fechas 
+    <section id="date-manipulation" class="main-section">
+      <header>Manipulación de Fechas</header>
+      <p></p>
+    </section>
+
+    <!-- Manejo de Errores 
+    <section id="error-handling" class="main-section">
+      <header>Manejo de Errores</header>
+      <p></p>
+    </section>
+
+    <!-- Asincronía 
+    <section id="asynchrony" class="main-section">
+      <header>Asincronía</header>
+      <p></p>
+    </section>
+
+    <!-- Expresiones Regulares 
+    <section id="regular-expressions" class="main-section">
+      <header>Expresiones Regulares</header>
+      <p></p>
+    </section>
+
+    <!-- Manejo del Contexto (this) 
+    <section id="this-context" class="main-section">
+      <header>Manejo del Contexto (this)</header>
+      <p></p>
+    </section>
+
+    <!-- Módulos 
+    <section id="modules" class="main-section">
+      <header>Módulos</header>
+      <p></p>
+    </section>
+
+    <!-- Estructuras de Datos 
+    <section id="data-structures" class="main-section">
+      <header>Estructuras de Datos</header>
+      <p></p>
+    </section>
+
+    <!-- Operadores Avanzados 
+    <section id="advanced-operators" class="main-section">
+      <header>Operadores Avanzados</header>
+      <p></p>
+    </section>
+
+    <!-- Iteradores y Generadores 
+    <section id="iterators-generators" class="main-section">
+      <header>Iteradores y Generadores</header>
+      <p></p>
+    </section>
+
+    <!-- Manejo de JSON 
+    <section id="json-handling" class="main-section">
+      <header>Manejo de JSON</header>
+      <p></p>
+    </section>
+-->
+    <!-- Ajax y Fetch API -->
+<!-- AJAX y Fetch API -->
+<section id="ajax-fetch" class="main-section">
+    <header>AJAX y Fetch API en JavaScript</header>
+  
+    <p>
+      1. <strong>¿Qué es AJAX?</strong><br>
+      - AJAX (Asynchronous JavaScript and XML) permite actualizar partes de una página web sin recargar la página completa.<br>
+      - Con AJAX, puedes enviar solicitudes a un servidor y recibir respuestas de manera asíncrona, lo que hace que las aplicaciones web sean más rápidas y dinámicas.<br>
+      - Aunque el nombre incluye "XML", AJAX también puede manejar otros formatos de datos, como JSON (más común en aplicaciones modernas).
+    </p>
+  
+    <p>
+      2. <strong>XMLHttpRequest</strong><br>
+      - Antes de la llegada de <code>fetch()</code>, la API original de AJAX era <code>XMLHttpRequest</code>.<br>
+      - Aunque ha sido reemplazada en muchos casos por <code>fetch()</code>, <code>XMLHttpRequest</code> sigue siendo útil en algunas situaciones por su soporte en navegadores más antiguos.
+    </p>
+    <pre><code>
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        console.log(data);
+      }
+    };
+    xhr.send();
+    </code></pre>
+  
+    <p>
+      3. <strong>Fetch API</strong><br>
+      - La API <code>fetch()</code> es una forma más moderna y fácil de hacer solicitudes asíncronas en JavaScript.<br>
+      - Se basa en Promesas, lo que permite un manejo más intuitivo y estructurado de las respuestas y errores.
+    </p>
+    <pre><code>
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la solicitud: " + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Hubo un error:", error));
+    </code></pre>
+  
+    <p>
+      4. <strong>Promesas en Fetch</strong><br>
+      - <code>fetch()</code> está basado en Promesas. Las Promesas son objetos que representan el eventual resultado (o error) de una operación asíncrona.
+    </p>
+    <pre><code>
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la solicitud: " + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error:", error));
+    </code></pre>
+  
+    <p>
+      5. <strong>Métodos HTTP: GET, POST, PUT, DELETE</strong><br>
+      - El protocolo HTTP define varios métodos que indican la acción que deseas realizar con la solicitud. Los más comunes son:
+    </p>
+    
+    <p>
+      a) <strong>GET</strong>: Se usa para <strong>obtener</strong> datos de un servidor.<br>
+      <pre><code>
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "GET"
+      })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+      </code></pre>
+    </p>
+  
+    <p>
+      b) <strong>POST</strong>: Se usa para <strong>enviar</strong> datos al servidor (por ejemplo, crear un nuevo recurso).<br>
+      <pre><code>
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: "Nuevo post",
+          body: "Este es el contenido del nuevo post",
+          userId: 1
+        })
+      })
+      .then((response) => response.json())
+      .then((data) => console.log("Post creado:", data));
+      </code></pre>
+    </p>
+  
+    <p>
+      c) <strong>PUT</strong>: Se usa para <strong>actualizar</strong> un recurso existente.<br>
+      <pre><code>
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id: 1,
+          title: "Título actualizado",
+          body: "Este es el contenido actualizado",
+          userId: 1
+        })
+      })
+      .then((response) => response.json())
+      .then((data) => console.log("Post actualizado:", data));
+      </code></pre>
+    </p>
+  
+    <p>
+      d) <strong>DELETE</strong>: Se usa para <strong>eliminar</strong> un recurso en el servidor.<br>
+      <pre><code>
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "DELETE"
+      })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Post eliminado");
+        } else {
+          console.error("Error al eliminar el post");
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+      </code></pre>
+    </p>
+  
+    <p>
+      6. <strong>Manejo de respuestas y errores</strong><br>
+      - Siempre que usas <code>fetch()</code>, debes manejar tanto la respuesta como los posibles errores.<br>
+      - <code>response.ok</code> es útil para verificar si la solicitud fue exitosa (status 200-299).
+    </p>
+    <pre><code>
+    fetch("https://jsonplaceholder.typicode.com/posts/1000")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Recurso no encontrado: " + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error capturado:", error));
+    </code></pre>
+  
+    <p>
+      <strong>Conclusión:</strong><br>
+      - AJAX y <code>fetch()</code> permiten realizar solicitudes asíncronas para obtener, enviar, actualizar y eliminar datos desde un servidor.<br>
+      - <code>fetch()</code> es una forma moderna y basada en Promesas que facilita el manejo de solicitudes HTTP en comparación con <code>XMLHttpRequest</code>.<br>
+      - Los métodos HTTP más comunes son GET, POST, PUT y DELETE, cada uno con su propósito específico.<br>
+      - Siempre es importante manejar correctamente las respuestas y errores para evitar comportamientos inesperados.
+    </p>
+  </section>
+  
+
+ <!-- Web APIs -->
+<section id="web-apis" class="main-section">
+    <header>Web APIs en JavaScript</header>
+  
+    <p>
+      1. <strong>¿Qué son las Web APIs?</strong><br>
+      - Las Web APIs son interfaces que los navegadores web proporcionan para que puedas interactuar con el entorno del navegador, acceder a datos o manipular la página web de diversas formas. JavaScript usa estas APIs para realizar tareas como geolocalización, almacenamiento local, manipulación de gráficos, solicitudes HTTP y mucho más.
+    </p>
+  
+    <p>
+      2. <strong>API de geolocalización</strong><br>
+      - La API de geolocalización permite obtener la ubicación del usuario en tiempo real, lo que puede ser útil en aplicaciones como mapas, servicios de navegación o para mostrar contenido relevante según la ubicación.<br>
+      - Funciona de manera asíncrona y depende de los permisos del usuario.
+    </p>
+    <pre><code>
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(`Latitud: ${position.coords.latitude}`);
+          console.log(`Longitud: ${position.coords.longitude}`);
+        },
+        (error) => {
+          console.error("Error al obtener la geolocalización:", error.message);
+        }
+      );
+    } else {
+      console.error("La API de geolocalización no está disponible en este navegador.");
+    }
+    </code></pre>
+  
+    <p>
+      3. <strong>API de almacenamiento local: localStorage, sessionStorage</strong><br>
+      - <code>localStorage</code> y <code>sessionStorage</code> permiten almacenar datos en el navegador de manera persistente o temporal.<br>
+      - <code>localStorage</code>: Los datos persisten incluso si el navegador se cierra.<br>
+      - <code>sessionStorage</code>: Los datos persisten solo durante la sesión del navegador y se eliminan cuando se cierra la pestaña.
+    </p>
+    <pre><code>
+    const clave = "usuario";
+  
+    // Uso de localStorage
+    localStorage.setItem(clave, "Juergen Muller");
+    console.log(localStorage.getItem(clave)); // "Juergen Muller"
+    localStorage.removeItem(clave);
+  
+    // Uso de sessionStorage
+    sessionStorage.setItem(clave, "Sesión de usuario");
+    console.log(sessionStorage.getItem(clave)); // "Sesión de usuario"
+    sessionStorage.clear();
+    </code></pre>
+  
+    <p>
+      4. <strong>API de Canvas</strong><br>
+      - La API de Canvas te permite dibujar gráficos en 2D directamente en la página web.<br>
+      - Puedes usar esta API para crear animaciones, gráficos interactivos o incluso juegos.
+    </p>
+    <pre><code>
+    const canvas = document.getElementById("miCanvas");
+    const ctx = canvas.getContext("2d");
+  
+    // fillRect(): Dibuja un rectángulo lleno
+    ctx.fillStyle = "blue";
+    ctx.fillRect(10, 10, 100, 100);
+  
+    // clearRect(): Limpia un área del canvas
+    ctx.clearRect(10, 10, 50, 50);
+  
+    // drawImage(): Dibuja una imagen en el canvas
+    const img = new Image();
+    img.src = "ruta-a-la-imagen.jpg";
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, 150, 100);
+    };
+    </code></pre>
+  
+    <p>
+      5. <strong>API de Fetch y manipulación de recursos</strong><br>
+      - La API <code>fetch()</code> te permite hacer solicitudes HTTP de forma asíncrona para interactuar con recursos como datos JSON, archivos o imágenes desde un servidor remoto.
+    </p>
+    <pre><code>
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "GET"
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la solicitud");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error capturado:", error);
+      });
+    </code></pre>
+  
+    <p>
+      6. <strong>Métodos HTTP</strong><br>
+      - Los métodos más comunes en las solicitudes HTTP son:
+      <ul>
+        <li><strong>GET</strong>: Obtener datos.</li>
+        <li><strong>POST</strong>: Enviar datos.</li>
+        <li><strong>PUT</strong>: Actualizar datos.</li>
+        <li><strong>DELETE</strong>: Eliminar datos.</li>
+      </ul>
+    </p>
+    <pre><code>
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: "Nuevo Post",
+        body: "Contenido del nuevo post",
+        userId: 1
+      })
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Post creado:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    </code></pre>
+  
+    <p>
+      <strong>Conclusión:</strong><br>
+      - Las Web APIs proporcionan interfaces poderosas para interactuar con el navegador y realizar tareas como obtener la ubicación del usuario, almacenar datos localmente, manipular gráficos con Canvas o hacer solicitudes HTTP.<br>
+      - La API de geolocalización te permite obtener la ubicación actual del usuario, <code>localStorage</code> y <code>sessionStorage</code> ofrecen almacenamiento local, y la API de Canvas te permite dibujar gráficos en 2D.<br>
+      - La API <code>fetch()</code> es esencial para manejar solicitudes HTTP y manipular recursos de forma asíncrona.
+    </p>
+  
+  </section>
+  
+
+    <!-- EcmaScript (ES) Features 
+    <section id="ecmascript-features" class="main-section">
+      <header>EcmaScript (ES) Features</header>
+      <p></p>
+    </section>
+-->
+
+<!-- Internals y Performance -->
+<section id="internals-performance" class="main-section">
+    <header>Internals y Performance en JavaScript</header>
+  
+    <p>
+      1. <strong>Event Loop</strong><br>
+      - El Event Loop es el mecanismo que permite a JavaScript manejar operaciones asíncronas (como promesas, timeouts, y callbacks) de forma no bloqueante.<br>
+      - JavaScript es single-threaded, lo que significa que solo puede ejecutar una tarea a la vez en su <strong>call stack</strong>. Sin embargo, gracias al event loop, puede delegar tareas asíncronas a APIs del navegador o a Node.js, y cuando esas tareas finalizan, el event loop las coloca en la <strong>cola de tareas</strong> (task queue) para ser procesadas.
+    </p>
+    <pre><code>
+    console.log("Inicio");
+  
+    // Simula una operación asíncrona
+    setTimeout(() => {
+      console.log("Operación asíncrona");
+    }, 0);
+  
+    console.log("Final");
+    </code></pre>
+    <p>
+      Salida esperada:<br>
+      1. "Inicio"<br>
+      2. "Final"<br>
+      3. "Operación asíncrona"
+    </p>
+  
+    <p>
+      2. <strong>Call Stack y Heap</strong><br>
+      - El <strong>Call Stack</strong> es la pila donde se almacenan las llamadas a funciones en orden de ejecución. Cada vez que una función es invocada, se coloca en la parte superior de la pila. Cuando la función termina, se elimina de la pila.<br>
+      - El <strong>Heap</strong> es un espacio de memoria grande y no estructurado donde se almacenan los objetos y variables dinámicas.
+    </p>
+    <pre><code>
+    function uno() {
+      dos();
+      console.log("Uno");
+    }
+  
+    function dos() {
+      tres();
+      console.log("Dos");
+    }
+  
+    function tres() {
+      console.log("Tres");
+    }
+  
+    uno();
+    </code></pre>
+    <p>Salida: "Tres", "Dos", "Uno"</p>
+  
+    <p>
+      3. <strong>Hoisting</strong><br>
+      - El <strong>hoisting</strong> es el comportamiento por el cual las declaraciones de variables y funciones se "elevan" al comienzo de su contexto, permitiendo que sean utilizadas antes de ser declaradas.
+    </p>
+    <pre><code>
+    console.log(nombre); // undefined (debido al hoisting)
+    var nombre = "Juergen";
+    console.log(nombre); // "Juergen"
+  
+    saludar(); // "Hola, Juergen" (debido al hoisting de funciones)
+  
+    function saludar() {
+      console.log("Hola, Juergen");
+    }
+    </code></pre>
+  
+    <p>
+      4. <strong>Coerción de tipos</strong><br>
+      - La <strong>coerción de tipos</strong> es la conversión automática o implícita de valores de un tipo de dato a otro.<br>
+      - Puede ser implícita o explícita.
+    </p>
+    <pre><code>
+    console.log(2 + "2"); // "22"
+    console.log(2 - "2"); // 0
+    console.log(Boolean(0)); // false
+  
+    const numero = "123";
+    const convertido = Number(numero);
+    console.log(convertido); // 123
+    </code></pre>
+  
+    <p>
+      5. <strong>Scope (local, global, closure)</strong><br>
+      - El <strong>scope</strong> se refiere al contexto en el que las variables y funciones son accesibles.
+      <ul>
+        <li><strong>Global Scope</strong>: Variables accesibles desde cualquier parte del código.</li>
+        <li><strong>Local Scope</strong>: Variables limitadas al contexto en el que fueron declaradas.</li>
+        <li><strong>Closures</strong>: Funciones que recuerdan el contexto en el que fueron creadas, incluso después de que el entorno externo ha finalizado.</li>
+      </ul>
+    </p>
+    <pre><code>
+    let globalVariable = "Soy global";
+  
+    function funcionExterna() {
+      let localVariable = "Soy local";
+  
+      function closure() {
+        console.log(globalVariable);
+        console.log(localVariable);
+      }
+  
+      return closure;
+    }
+  
+    const miClosure = funcionExterna();
+    miClosure(); // "Soy global", "Soy local"
+    </code></pre>
+  
+    <p>
+      6. <strong>Contexto de ejecución y fases</strong><br>
+      - El <strong>contexto de ejecución</strong> es el entorno en el que se evalúa y ejecuta el código JavaScript.<br>
+      - Cada contexto tiene un valor de <code>this</code> que hace referencia al objeto al que pertenece la función que se está ejecutando.
+    </p>
+    <pre><code>
+    const objeto = {
+      nombre: "Juergen",
+      obtenerNombre: function() {
+        console.log(this.nombre);
+      }
+    };
+  
+    objeto.obtenerNombre(); // "Juergen"
+    </code></pre>
+  
+    <p>
+      <strong>Conclusión:</strong><br>
+      - El Event Loop permite a JavaScript manejar operaciones asíncronas sin bloquear el flujo de ejecución.<br>
+      - El Call Stack sigue un orden LIFO para las funciones, mientras que el Heap es el espacio de memoria para almacenar datos dinámicos.<br>
+      - El Hoisting eleva las declaraciones, pero no las inicializaciones.<br>
+      - La coerción de tipos puede convertir valores entre tipos de datos automáticamente.<br>
+      - El scope en JavaScript define dónde se pueden acceder las variables, y los closures son funciones que "recuerdan" su contexto.<br>
+      - El contexto de ejecución tiene fases de creación y ejecución, y el valor de <code>this</code> varía dependiendo de cómo se invoca la función.
+    </p>
+  </section>
+  
+
+    <!-- Operaciones Avanzadas con Strings 
+    <section id="advanced-string-operations" class="main-section">
+      <header>Operaciones Avanzadas con Strings</header>
+      <p></p>
+    </section>
+-->
+  </main>
+</body>
+</html>

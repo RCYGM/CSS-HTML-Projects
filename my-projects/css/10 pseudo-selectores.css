@@ -1,0 +1,205 @@
+html{
+    box-sizing: border-box;
+    /* Aplica el modelo de caja 'border-box' a todos los elementos en el HTML,
+       asegurando que el padding y el border se incluyan dentro del ancho y alto de los elementos. */
+}
+body{
+    font-family: "sans-serif";
+    color: #0a0a23;
+    /* Define la fuente 'sans-serif' para todo el texto en el body y establece un color de texto oscuro (#0a0a23). */
+}
+
+/* El selector span[class~="sr-only"] seleccionará cualquier elemento span 
+   cuya clase incluya 'sr-only', y aplica estilos para ocultar estos elementos visualmente, 
+   pero mantenerlos accesibles para lectores de pantalla. */
+
+span[class~="sr-only"] { 
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  /* Estas propiedades ocultan completamente el span de la vista, 
+     mientras que el !important asegura que estas reglas tengan la mayor prioridad. */
+}
+
+h1{
+    max-width: 37.25rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+    /* Establece un ancho máximo para el h1 y lo centra en la página con margin auto.
+       Además, agrega padding para espaciar el contenido dentro del h1. */
+}
+
+h1 .flex{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    /* Usa flexbox para organizar los span dentro del h1 en una columna invertida,
+       con un espacio de 1rem entre ellos. */
+}
+
+h1 .flex span:first-of-type{
+    font-size: 0.7em;
+    /* Aplica un tamaño de fuente más pequeño (70%) al primer span dentro del h1 */
+}
+
+h1 .flex span:last-of-type{
+    font-size: 1.2em;
+    /* Aplica un tamaño de fuente más grande (120%) al último span dentro del h1 */
+}
+
+section{
+    max-width: 40rem;
+    margin: 0 auto;
+    border: 2px solid #d0d0d5;
+    /* Define un ancho máximo para la sección, la centra y le agrega un borde gris claro de 2px. */
+}
+
+#years{
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    color: #fff;
+    background-color: #0a0a23;
+    margin: 0 -2px;
+    padding: 0.5rem calc(1.25rem + 2px) 0.5rem 0;
+    z-index: 999;
+    /* Establece un contenedor flexible para los años, 
+       lo posiciona de manera fija al desplazarse (sticky) en la parte superior, 
+       y aplica un color de fondo oscuro con texto blanco. */
+}
+
+#years span[class]{
+    font-weight: bold;
+    width: 4.5rem;
+    text-align: right;
+    /* Aplica negrita a los spans dentro de #years, 
+       define un ancho fijo y alinea el texto a la derecha. */
+}
+
+.table-wrap{
+    padding: 0 0.75rem 1.5rem 0.75rem;
+    /* Agrega padding alrededor de la tabla para espaciarla del contenido circundante. */
+}
+
+span:not(.sr-only){
+    font-weight: normal;
+    /* Asegura que los span que no tienen la clase 'sr-only' mantengan un peso de fuente normal. */
+}
+
+table{
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    position: relative;
+    margin-top: 3rem;
+    /* Elimina el espacio entre las celdas de la tabla (collapse), 
+       establece la tabla a 100% del ancho del contenedor, 
+       y agrega un margen superior para separarla del contenido anterior. */
+}
+
+table caption{
+    font-weight: normal;
+    color: #356eaf;
+    font-size: 1.3em;
+    position: absolute;
+    top: -2.25rem;
+    left: 0.5rem;
+    /* Estiliza el caption de la tabla, lo posiciona de manera absoluta
+       sobre la tabla con un color azul (#356eaf) y un tamaño de fuente mayor. */
+}
+
+tbody td{
+    width: 100vw;
+    max-width: 4rem;
+    min-width: 4rem;
+    /* Define un ancho flexible para las celdas de datos en el cuerpo de la tabla,
+       asegurando que se ajusten entre 4rem y el ancho de la ventana (100vw). */
+}
+
+tbody th{
+    width: calc(100% - 12rem);
+    /* Asegura que las celdas de encabezado ocupen el espacio restante 
+       después de restar el ancho de las celdas de datos. */
+}
+
+tr[class="total"]{
+    border-bottom: 4px double #0a0a23;
+    font-weight: bold;
+    /* Aplica un borde doble en la parte inferior y pone en negrita 
+       las filas que solo tienen la clase 'total'. */
+}
+
+tr[class="total"] th{
+    text-align: left;
+    padding: 0.5rem 0 0.25rem 0.5rem;
+    /* Alinea el texto a la izquierda en las celdas de encabezado de las filas 'total'
+       y agrega padding alrededor para espaciar el contenido. */
+}
+
+tr.total td {
+    text-align: right;
+    padding: 0 0.25rem;
+    /* Alinea el texto a la derecha en las celdas de datos de las filas 'total'
+       y ajusta el padding para espaciar el contenido. */
+}
+
+tr.total td:nth-of-type(3){
+    padding: 0.5rem;
+    /* Aplica padding adicional en la tercera celda de las filas 'total'. */
+}
+
+tr.total:hover{
+    background-color: #99c9ff;
+    /* Cambia el color de fondo al pasar el mouse por encima de las filas 'total'. */
+}
+
+td[class="current"]{
+    font-style: italic;
+    /* Aplica un estilo de fuente itálica a las celdas de datos con la clase 'current'. */
+}
+
+tr.data{
+    background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+    /* Aplica un fondo con degradado lineal a las filas de datos, 
+       creando una distinción visual entre el encabezado y el contenido. */
+}
+
+tr.data th {
+    text-align: left;
+    padding-top: 0.3rem;
+    padding-left: 0.5rem;
+    /* Alinea el texto a la izquierda en las celdas de encabezado de las filas de datos
+       y agrega padding para espaciar el contenido. */
+}
+
+tr.data th .description{
+    display: block;
+    font-style: italic;
+    font-weight: normal;
+    padding: 1rem 0 0.75rem;
+    margin-right: -13.5rem;
+    /* Estiliza la descripción dentro del encabezado de las filas de datos, 
+       haciéndola visible como un bloque independiente con estilo itálico. */
+}
+
+tr.data td{
+    vertical-align: top;
+    text-align: right;
+    padding: 0.3rem 0.25rem 0;
+    /* Alinea el contenido de las celdas de datos a la parte superior y derecha, 
+       y agrega padding para espaciar el contenido. */
+}
+
+tr.data td:last-of-type{
+    padding-right: 0.5rem;
+    /* Agrega padding adicional a la última celda de cada fila de datos, 
+       para separarla del borde derecho de la tabla. */
+}

@@ -1,0 +1,99 @@
+
+html {
+    font-size: 16px; /* 1 rem = 16px por defecto */
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* Estilo de la barra de navegación */
+  #navbar {
+    width: 20rem; 
+    position: fixed; /* Siempre visible en la izquierda */
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    background-color: #f4f4f4; 
+    padding: 2rem; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    overflow-y: auto;
+  }
+  
+  #navbar header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem; 
+  }
+  
+  .nav-link {
+    display: block; 
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Efecto suave al pasar el mouse */
+  }
+  
+  .nav-link:hover {
+    color: #007bff; 
+  }
+  
+  /* contenido principal */
+  #main-doc {
+    margin-left: 24rem; 
+    padding: 2rem;
+    max-width: 60rem; 
+  }
+  
+  .main-section {
+    margin-bottom: 4rem; 
+  }
+  
+  .main-section header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  code {
+    background-color: #000000;
+    color: #f1f1f1;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 1.2rem;
+  }
+  
+  pre {
+    background-color: #000000;
+    padding: 1.5rem;
+    border-left: 4px solid #007bff;
+    overflow-x: auto;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    #navbar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    #main-doc {
+      margin-left: 0;
+      padding: 1rem;
+    }
+  }
+  

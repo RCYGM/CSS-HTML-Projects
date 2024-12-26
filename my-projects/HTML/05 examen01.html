@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Encuesta</title>
+    <link rel="stylesheet" href="../css/05 examen01.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Encuesta de Satisfacción</h1>
+        <p id="description">Por favor, llena el siguiente formulario para darnos tu opinión.</p>
+
+        <form id="survey-form">
+            <!-- Nombre -->
+            <label id="name-label" for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+
+            <!-- Email -->
+            <label id="email-label" for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+
+            <!-- Número -->
+            <label id="number-label" for="number">Edad:</label>
+            <input type="number" id="number" name="age" min="10" max="100" placeholder="Ingresa tu edad" required>
+
+            <!-- Desplegable -->
+            <label for="dropdown">¿Cómo te enteraste de nosotros?</label>
+            <select id="dropdown" name="source">
+                <option value="internet">Internet</option>
+                <option value="amigos">Amigos</option>
+                <option value="redes">Redes Sociales</option>
+            </select>
+
+            <!-- Botones de Radio -->
+            <p>¿Qué tan satisfecho estás con nuestro servicio?</p>
+            <label>
+                <input type="radio" name="satisfaction" value="satisfecho" required> Satisfecho
+            </label>
+            <label>
+                <input type="radio" name="satisfaction" value="insatisfecho"> Insatisfecho
+            </label>
+
+            <!-- Casillas de Verificación -->
+            <p>¿Qué características te gustan de nuestro servicio?</p>
+            <label>
+                <input type="checkbox" name="features" value="rapidez"> Rapidez
+            </label>
+            <label>
+                <input type="checkbox" name="features" value="calidad"> Calidad
+            </label>
+            <label>
+                <input type="checkbox" name="features" value="precio"> Precio
+            </label>
+
+            <!-- Textarea -->
+            <label for="comments">Comentarios adicionales:</label>
+            <textarea id="comments" name="comments" placeholder="Escribe tus comentarios aquí..."></textarea>
+
+            <!-- Botón de Enviar -->
+            <button type="submit" id="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="sline"></div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+html {
+    box-sizing: border-box;
+}
+
+/* Ahora que has restablecido el modelo de caja del html, tienes que 
+pasarlo también a los elementos de su interior. Para ello, puedes 
+establecer la propiedad box-sizing en inherit, lo que indicará a 
+los elementos apuntados que utilicen el mismo valor que el elemento 
+padre.
+
+También tendrás que apuntar a los pseudo-elementos, que son palabras 
+clave especiales que siguen a un selector. Los dos pseudo-elementos 
+que usaras son ::before y ::after.
+
+El selector ::before crea un pseudo-elemento que es el primer hijo 
+del elemento seleccionado, mientras que el selector ::after crea un 
+pseudo-elemento que es el último hijo del elemento seleccionado. 
+Estos pseudo-elementos a menudo se usan para crear contenido 
+cosmético, que verás más adelante en este proyecto.
+
+Por ahora, crea un selector CSS para apuntar a todos los elementos 
+con *, e incluye los pseudo-elementos con ::before y ::after. 
+Establece la propiedad box-sizing en inherit. 
+
+*/
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+#piano{
+    background-color: #00471b;
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    padding: 90px 20px 0 20px;
+    position: relative;
+    border-radius: 10px;
+}
+.keys{
+    background-color: #040404;
+    width: 949px;
+    height: 180px;
+    padding-left: 2px;
+}
+.key{
+    background-color: #ffffff;
+    position: relative;
+    width: 41px;
+    height: 175px;
+    margin: 2px;
+    float: left;
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+    /* Puede que hayas notado que las teclas se colapsan cuando la ventana del navegador es menor de 768px. Establece el overflow a hidden en el primer selector .keys, para solucionar este problema. Esta propiedad ocultará cualquier elemento que sea empujado fuera del valor del width establecido en el .keys. */
+}
+.key.black--key::after{ /*  Esto apuntará a los elementos con la clase key black--key, y seleccionará el pseudo-elemento después de estos elementos en el HTML. */
+background-color: #1d1e22;
+content: ""; /* Esto hará que los pseudo-elementos estén vacíos. */
+
+/*La propiedad content se utiliza para establecer o anular el contenido 
+de un elemento. Por defecto, los pseudo-elementos creados por los 
+pseudo-selectores ::before y ::after están vacíos, y los elementos no 
+serán renderizados en la página. Establecer la propiedad content a una 
+cadena vacía "" asegurará que el elemento se renderice en la página 
+aunque siga estando vacío.*/
+
+/* Si quieres experimentar, prueba eliminando la propiedad background-color y 
+a establecer valores diferentes para la propiedad content, como "♥". Recuerde 
+deshacer estos cambios cuando haya terminado para que las pruebas pasen. */
+position: absolute;
+left: -18px;
+width: 32px;
+height: 100px;
+border-radius: 0 0 3px 3px;
+}
+.logo{
+    width: 200px;
+    position: absolute; /* El elemento img necesita que su elemento padre tenga un position establecido como un punto de referencia. Establece el position del selector #piano a relative. */
+    top: 23px;
+}
+@media (min-width: 768px) {
+    #piano{
+        width: 358px;
+    }
+    .key{
+        width: 318px;
+    }
+    .logo{
+        width: 150px;
+    }
+}
+@media (max-width: 1199px) and (min-width: 769px) {
+    #piano{
+        width: 675px;
+    }
+    .keys{
+        width: 633px;
+    }
+    
+}

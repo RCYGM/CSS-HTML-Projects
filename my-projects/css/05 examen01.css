@@ -1,0 +1,122 @@
+/* Estilo básico de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Estilo de los labels */
+label {
+    display: block;
+    text-align: left;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo de los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Estilo del botón de enviar */
+button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+/* Estilos adicionales */
+form p {
+    text-align: left;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+select {
+    cursor: pointer;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #5cb85c;
+}
+
+/* Estilo para hacer el formulario más responsivo */
+
+@media (min-width: 390px) and (max-width: 767px) {
+    .container {
+        width: 80%;
+        height: 100%;
+        padding-bottom: 2rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+
+    }
+}
